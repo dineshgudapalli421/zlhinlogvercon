@@ -41,23 +41,23 @@
                 <Property Name="p_start" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="In_Log Start date"/>
                 <Property Name="p_end" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="In_Log End date"/>
                 <Property Name="equnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:required-in-filter="false" sap:label="Meter Number" sap:quickinfo="Equipment Number"/>
-                <Property Name="budat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Trans.Date" sap:quickinfo="Posting Date in the Document"/>
+                <Property Name="cpudt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Trans.Date" sap:quickinfo="Day On Which Accounting Document Was Entered"/>
                 <Property Name="casenr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="BPEM" sap:quickinfo="Clarification Case"/>
                 <Property Name="matnr" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Device Category" sap:quickinfo="Material Number"/>
                 <Property Name="usnam" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Reported By" sap:quickinfo="User Name"/>
                 <Property Name="txt30" Type="Edm.String" MaxLength="30" sap:label="Desposition" sap:quickinfo="Individual Status of an Object"/>
-                <Property Name="KWH_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KWH Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="KVA_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVA Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="KW_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KW Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="KVAR_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVAR Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="KVAH_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVAH Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="KVARH_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVARH Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="KWH_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KWH Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="KW_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KW Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="KVA_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVA Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="KVAR_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVAR Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="KVAH_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVAH Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="KVARH_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVARH Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KWH_DEL" Type="Edm.String" MaxLength="10" sap:label="KWH Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVA_DEL" Type="Edm.String" MaxLength="10" sap:label="KVA Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KW_DEL" Type="Edm.String" MaxLength="10" sap:label="KW Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVAR_DEL" Type="Edm.String" MaxLength="10" sap:label="KVAR Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVAH_DEL" Type="Edm.String" MaxLength="10" sap:label="KVAH Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVARH_DEL" Type="Edm.String" MaxLength="10" sap:label="KVARH Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KWH_REC" Type="Edm.String" MaxLength="10" sap:label="KWH Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KW_REC" Type="Edm.String" MaxLength="10" sap:label="KW Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVA_REC" Type="Edm.String" MaxLength="10" sap:label="KVA Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVAR_REC" Type="Edm.String" MaxLength="10" sap:label="KVAR Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVAH_REC" Type="Edm.String" MaxLength="10" sap:label="KVAH Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVARH_REC" Type="Edm.String" MaxLength="10" sap:label="KVARH Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <NavigationProperty Name="Parameters" Relationship="ZC_DM_INLOG_VER_CON_CDS.assoc_38CDCC469DE059B7B0F9353C606F5376" FromRole="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376" ToRole="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376" sap:filterable="false"/>
             </EntityType>
             <EntityType Name="ZC_DM_INLOG_VER_CONParameters" sap:semantics="parameters" sap:content-version="1">

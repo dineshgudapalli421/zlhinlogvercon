@@ -72,6 +72,11 @@
                         </Record>
                     </Collection>
                 </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>equnr</PropertyPath>
+                    </Collection>
+                </Annotation>
             </Annotations>
         </Schema>
     </edmx:DataServices>
