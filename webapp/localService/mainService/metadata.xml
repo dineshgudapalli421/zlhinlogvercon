@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZC_DM_INLOG_VER_CON_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZC_DM_INLOG_VER_CONType" sap:label="In-log Verification Report" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="p_start"/>
+                    <PropertyRef Name="p_end"/>
+                    <PropertyRef Name="equnr"/>
+                </Key>
+                <Property Name="p_start" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="In_Log Start date"/>
+                <Property Name="p_end" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="In_Log End date"/>
+                <Property Name="equnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:required-in-filter="false" sap:label="Meter Number" sap:quickinfo="Equipment Number"/>
+                <Property Name="budat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Trans.Date" sap:quickinfo="Posting Date in the Document"/>
+                <Property Name="casenr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="BPEM" sap:quickinfo="Clarification Case"/>
+                <Property Name="matnr" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Device Category" sap:quickinfo="Material Number"/>
+                <Property Name="usnam" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Reported By" sap:quickinfo="User Name"/>
+                <Property Name="txt30" Type="Edm.String" MaxLength="30" sap:label="Desposition" sap:quickinfo="Individual Status of an Object"/>
+                <Property Name="KWH_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KWH Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVA_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVA Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KW_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KW Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVAR_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVAR Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVAH_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVAH Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVARH_DEL" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVARH Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KWH_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KWH Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KW_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KW Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVA_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVA Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVAR_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVAR Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVAH_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVAH Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KVARH_REC" Type="Edm.Decimal" Precision="20" Scale="10" sap:label="KVARH Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Parameters" Relationship="ZC_DM_INLOG_VER_CON_CDS.assoc_38CDCC469DE059B7B0F9353C606F5376" FromRole="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376" ToRole="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZC_DM_INLOG_VER_CONParameters" sap:semantics="parameters" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="p_start"/>
+                    <PropertyRef Name="p_end"/>
+                </Key>
+                <Property Name="p_start" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:parameter="mandatory" sap:label="In_Log Start date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="p_end" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:parameter="mandatory" sap:label="In_Log End date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Set" Relationship="ZC_DM_INLOG_VER_CON_CDS.assoc_38CDCC469DE059B7B0F9353C606F5376" FromRole="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376" ToRole="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
+            </EntityType>
+            <Association Name="assoc_38CDCC469DE059B7B0F9353C606F5376" sap:content-version="1">
+                <End Type="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONParameters" Multiplicity="1" Role="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
+                <End Type="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType" Multiplicity="*" Role="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
+            </Association>
+            <EntityContainer Name="ZC_DM_INLOG_VER_CON_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZC_DM_INLOG_VER_CONSet" EntityType="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_DM_INLOG_VER_CON" EntityType="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONParameters" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_38CDCC469DE059B7B0F9353C606F5376" Association="ZC_DM_INLOG_VER_CON_CDS.assoc_38CDCC469DE059B7B0F9353C606F5376" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_DM_INLOG_VER_CON" Role="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
+                    <End EntitySet="ZC_DM_INLOG_VER_CONSet" Role="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CON_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CON_CDS_Entities/ZC_DM_INLOG_VER_CON" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>p_start</PropertyPath>
+                                <PropertyPath>p_end</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="Parameters"/>
+                                    <PropertyValue Property="FilterRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Filterable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>p_start</PropertyPath>
+                                <PropertyPath>p_end</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CON_CDS_Entities/ZC_DM_INLOG_VER_CONSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>KWH_DEL</PropertyPath>
+                                <PropertyPath>KVA_DEL</PropertyPath>
+                                <PropertyPath>KW_DEL</PropertyPath>
+                                <PropertyPath>KVAR_DEL</PropertyPath>
+                                <PropertyPath>KVAH_DEL</PropertyPath>
+                                <PropertyPath>KVARH_DEL</PropertyPath>
+                                <PropertyPath>KWH_REC</PropertyPath>
+                                <PropertyPath>KW_REC</PropertyPath>
+                                <PropertyPath>KVA_REC</PropertyPath>
+                                <PropertyPath>KVAR_REC</PropertyPath>
+                                <PropertyPath>KVAH_REC</PropertyPath>
+                                <PropertyPath>KVARH_REC</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>KWH_DEL</PropertyPath>
+                                <PropertyPath>KVA_DEL</PropertyPath>
+                                <PropertyPath>KW_DEL</PropertyPath>
+                                <PropertyPath>KVAR_DEL</PropertyPath>
+                                <PropertyPath>KVAH_DEL</PropertyPath>
+                                <PropertyPath>KVARH_DEL</PropertyPath>
+                                <PropertyPath>KWH_REC</PropertyPath>
+                                <PropertyPath>KW_REC</PropertyPath>
+                                <PropertyPath>KVA_REC</PropertyPath>
+                                <PropertyPath>KVAR_REC</PropertyPath>
+                                <PropertyPath>KVAH_REC</PropertyPath>
+                                <PropertyPath>KVARH_REC</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://sapsdvapp.aws.londonhydro.cloud:8000/sap/opu/odata/sap/ZC_DM_INLOG_VER_CON_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://sapsdvapp.aws.londonhydro.cloud:8000/sap/opu/odata/sap/ZC_DM_INLOG_VER_CON_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
