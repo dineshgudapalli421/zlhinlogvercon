@@ -17,7 +17,7 @@
                             <PropertyValue Property="Value" Path="p_end"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value"  Path="equnr"/>
+                            <PropertyValue Property="Value" Path="equnr"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="cpudt"/>
@@ -35,27 +35,30 @@
                             <PropertyValue Property="Value" Path="txt30"/>
                         </Record>
                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="istablart"/>
+                        </Record>
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="KWH_DEL"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="KVA_DEL"/>
                         </Record>
-                         <Record Type="UI.DataField">
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="KW_DEL"/>
                         </Record>
-                         <Record Type="UI.DataField">
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="KVAR_DEL"/>
                         </Record>
-                         <Record Type="UI.DataField">
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="KVAH_DEL"/>
                         </Record>
-                         <Record Type="UI.DataField">
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="KVARH_DEL"/>
                         </Record>
-                         <Record Type="UI.DataField">
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="KWH_REC"/>
                         </Record>
-                         <Record Type="UI.DataField">
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="KW_REC"/>
                         </Record>
                         <Record Type="UI.DataField">

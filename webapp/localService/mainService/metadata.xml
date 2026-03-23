@@ -37,15 +37,17 @@
                     <PropertyRef Name="p_start"/>
                     <PropertyRef Name="p_end"/>
                     <PropertyRef Name="equnr"/>
+                    <PropertyRef Name="casenr"/>
                 </Key>
                 <Property Name="p_start" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="In_Log Start date"/>
                 <Property Name="p_end" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="In_Log End date"/>
-                <Property Name="equnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:required-in-filter="false" sap:label="Meter Number" sap:quickinfo="Equipment Number"/>
-                <Property Name="cpudt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Trans.Date" sap:quickinfo="Day On Which Accounting Document Was Entered"/>
-                <Property Name="casenr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="BPEM" sap:quickinfo="Clarification Case"/>
+                <Property Name="equnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:required-in-filter="false" sap:label="Meter Number" sap:quickinfo="Equipment Number" sap:value-list="standard"/>
+                <Property Name="casenr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="BPEM" sap:quickinfo="Clarification Case"/>
+                <Property Name="cpudt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Trans.Date" sap:quickinfo="Record Creation Date"/>
                 <Property Name="matnr" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Device Category" sap:quickinfo="Material Number"/>
-                <Property Name="usnam" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Reported By" sap:quickinfo="User Name"/>
+                <Property Name="usnam" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Reported By" sap:quickinfo="Name of Person Responsible for Creating the Object"/>
                 <Property Name="txt30" Type="Edm.String" MaxLength="30" sap:label="Desposition" sap:quickinfo="Individual Status of an Object"/>
+                <Property Name="istablart" Type="Edm.String" MaxLength="23" sap:label="Read Type"/>
                 <Property Name="KWH_DEL" Type="Edm.String" MaxLength="10" sap:label="KWH Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="KVA_DEL" Type="Edm.String" MaxLength="10" sap:label="KVA Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="KW_DEL" Type="Edm.String" MaxLength="10" sap:label="KW Del" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -69,6 +71,12 @@
                 <Property Name="p_end" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:parameter="mandatory" sap:label="In_Log End date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <NavigationProperty Name="Set" Relationship="ZC_DM_INLOG_VER_CON_CDS.assoc_38CDCC469DE059B7B0F9353C606F5376" FromRole="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376" ToRole="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
             </EntityType>
+            <EntityType Name="ZI_DM_OUTLOG_VER_INT2Type" sap:label="value help for material number" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="equnr"/>
+                </Key>
+                <Property Name="equnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Equipment" sap:quickinfo="Equipment Number"/>
+            </EntityType>
             <Association Name="assoc_38CDCC469DE059B7B0F9353C606F5376" sap:content-version="1">
                 <End Type="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONParameters" Multiplicity="1" Role="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
                 <End Type="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType" Multiplicity="*" Role="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
@@ -76,12 +84,30 @@
             <EntityContainer Name="ZC_DM_INLOG_VER_CON_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="ZC_DM_INLOG_VER_CONSet" EntityType="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="ZC_DM_INLOG_VER_CON" EntityType="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONParameters" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_DM_OUTLOG_VER_INT2" EntityType="ZC_DM_INLOG_VER_CON_CDS.ZI_DM_OUTLOG_VER_INT2Type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <AssociationSet Name="assoc_38CDCC469DE059B7B0F9353C606F5376" Association="ZC_DM_INLOG_VER_CON_CDS.assoc_38CDCC469DE059B7B0F9353C606F5376" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="ZC_DM_INLOG_VER_CON" Role="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
                     <End EntitySet="ZC_DM_INLOG_VER_CONSet" Role="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
                 </AssociationSet>
             </EntityContainer>
             <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType/equnr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="value help for material number"/>
+                        <PropertyValue Property="CollectionPath" String="ZI_DM_OUTLOG_VER_INT2"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="equnr"/>
+                                    <PropertyValue Property="ValueListProperty" String="equnr"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
             <Annotations Target="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CON_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
             </Annotations>
