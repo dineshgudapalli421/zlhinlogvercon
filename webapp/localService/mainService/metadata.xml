@@ -34,13 +34,13 @@
         <Schema Namespace="ZC_DM_INLOG_VER_CON_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
             <EntityType Name="ZC_DM_INLOG_VER_CONType" sap:label="In-log Verification Report" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="p_start"/>
                     <PropertyRef Name="p_end"/>
+                    <PropertyRef Name="p_start"/>
                     <PropertyRef Name="equnr"/>
                     <PropertyRef Name="casenr"/>
                 </Key>
-                <Property Name="p_start" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="In_Log Start date"/>
                 <Property Name="p_end" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="In_Log End date"/>
+                <Property Name="p_start" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Meter reading date"/>
                 <Property Name="equnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:required-in-filter="false" sap:label="Meter Number" sap:quickinfo="Equipment Number" sap:value-list="standard"/>
                 <Property Name="casenr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="BPEM" sap:quickinfo="Clarification Case"/>
                 <Property Name="cpudt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Trans.Date" sap:quickinfo="Record Creation Date"/>
@@ -60,16 +60,25 @@
                 <Property Name="KVAR_REC" Type="Edm.String" MaxLength="10" sap:label="KVAR Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="KVAH_REC" Type="Edm.String" MaxLength="10" sap:label="KVAH Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="KVARH_REC" Type="Edm.String" MaxLength="10" sap:label="KVARH Rec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="t_dat" Type="Edm.DateTime" Precision="0" sap:display-format="Date"/>
+                <NavigationProperty Name="to_defaultdate" Relationship="ZC_DM_INLOG_VER_CON_CDS.assoc_755250D34DF683DB3234CEC3051D5A23" FromRole="FromRole_assoc_755250D34DF683DB3234CEC3051D5A23" ToRole="ToRole_assoc_755250D34DF683DB3234CEC3051D5A23"/>
                 <NavigationProperty Name="Parameters" Relationship="ZC_DM_INLOG_VER_CON_CDS.assoc_38CDCC469DE059B7B0F9353C606F5376" FromRole="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376" ToRole="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376" sap:filterable="false"/>
             </EntityType>
             <EntityType Name="ZC_DM_INLOG_VER_CONParameters" sap:semantics="parameters" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="p_start"/>
                     <PropertyRef Name="p_end"/>
+                    <PropertyRef Name="p_start"/>
                 </Key>
-                <Property Name="p_start" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:parameter="mandatory" sap:label="In_Log Start date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="p_end" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:parameter="mandatory" sap:label="In_Log End date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="p_start" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:parameter="mandatory" sap:label="Meter reading date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <NavigationProperty Name="Set" Relationship="ZC_DM_INLOG_VER_CON_CDS.assoc_38CDCC469DE059B7B0F9353C606F5376" FromRole="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376" ToRole="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
+            </EntityType>
+            <EntityType Name="ZI_DM_INLOG_VER_INT3Type" sap:label="interface  view is creating for default value" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CalendarDate"/>
+                </Key>
+                <Property Name="CalendarDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Calendar Date"/>
+                <Property Name="sy_dat" Type="Edm.DateTime" Precision="0" sap:display-format="Date"/>
             </EntityType>
             <EntityType Name="ZI_DM_OUTLOG_VER_INT2Type" sap:label="value help for material number" sap:value-list="true" sap:content-version="1">
                 <Key>
@@ -81,10 +90,19 @@
                 <End Type="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONParameters" Multiplicity="1" Role="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
                 <End Type="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType" Multiplicity="*" Role="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
             </Association>
+            <Association Name="assoc_755250D34DF683DB3234CEC3051D5A23" sap:content-version="1">
+                <End Type="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType" Multiplicity="1" Role="FromRole_assoc_755250D34DF683DB3234CEC3051D5A23"/>
+                <End Type="ZC_DM_INLOG_VER_CON_CDS.ZI_DM_INLOG_VER_INT3Type" Multiplicity="0..1" Role="ToRole_assoc_755250D34DF683DB3234CEC3051D5A23"/>
+            </Association>
             <EntityContainer Name="ZC_DM_INLOG_VER_CON_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="ZC_DM_INLOG_VER_CONSet" EntityType="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="ZC_DM_INLOG_VER_CON" EntityType="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONParameters" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_DM_INLOG_VER_INT3" EntityType="ZC_DM_INLOG_VER_CON_CDS.ZI_DM_INLOG_VER_INT3Type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="ZI_DM_OUTLOG_VER_INT2" EntityType="ZC_DM_INLOG_VER_CON_CDS.ZI_DM_OUTLOG_VER_INT2Type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_755250D34DF683DB3234CEC3051D5A23" Association="ZC_DM_INLOG_VER_CON_CDS.assoc_755250D34DF683DB3234CEC3051D5A23" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_DM_INLOG_VER_CONSet" Role="FromRole_assoc_755250D34DF683DB3234CEC3051D5A23"/>
+                    <End EntitySet="ZI_DM_INLOG_VER_INT3" Role="ToRole_assoc_755250D34DF683DB3234CEC3051D5A23"/>
+                </AssociationSet>
                 <AssociationSet Name="assoc_38CDCC469DE059B7B0F9353C606F5376" Association="ZC_DM_INLOG_VER_CON_CDS.assoc_38CDCC469DE059B7B0F9353C606F5376" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="ZC_DM_INLOG_VER_CON" Role="FromRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
                     <End EntitySet="ZC_DM_INLOG_VER_CONSet" Role="ToRole_assoc_38CDCC469DE059B7B0F9353C606F5376"/>
@@ -116,8 +134,8 @@
                     <Record>
                         <PropertyValue Property="NonFilterableProperties">
                             <Collection>
-                                <PropertyPath>p_start</PropertyPath>
                                 <PropertyPath>p_end</PropertyPath>
+                                <PropertyPath>p_start</PropertyPath>
                             </Collection>
                         </PropertyValue>
                     </Record>
@@ -142,8 +160,8 @@
                     <Record>
                         <PropertyValue Property="NonSortableProperties">
                             <Collection>
-                                <PropertyPath>p_start</PropertyPath>
                                 <PropertyPath>p_end</PropertyPath>
+                                <PropertyPath>p_start</PropertyPath>
                             </Collection>
                         </PropertyValue>
                     </Record>
@@ -166,6 +184,22 @@
                                 <PropertyPath>KVAR_REC</PropertyPath>
                                 <PropertyPath>KVAH_REC</PropertyPath>
                                 <PropertyPath>KVARH_REC</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_defaultdate"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
