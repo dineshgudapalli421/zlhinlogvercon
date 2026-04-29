@@ -26,10 +26,10 @@
     </edmx:Reference>
     <edmx:DataServices>
         <Schema Namespace="zc_dm_inlog_ver_con_cds_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-            <Annotations Target="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType/p_end">
+            <Annotations Target="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType/p_start">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
-            <Annotations Target="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType/p_start">
+            <Annotations Target="ZC_DM_INLOG_VER_CON_CDS.ZC_DM_INLOG_VER_CONType/p_end">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
         </Schema>

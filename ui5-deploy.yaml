@@ -19,6 +19,6 @@ builder:
         app:
           name: ZINLOGVERCDS
           package: ZDM
-          transport: SDVK914309
+          transport: SDVK916356
         exclude:
           - /test/
